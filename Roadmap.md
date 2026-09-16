@@ -72,7 +72,7 @@ JSON
 }
 ```
 
-**Service:** Cria um 
+**Service:** Cria um novo serviço
 ```
 JSON
 
@@ -142,3 +142,7 @@ JSON
     ..
 ]
 ```
+
+## PATCH - api/services/:id
+
+## DELETE - api/services/:id
