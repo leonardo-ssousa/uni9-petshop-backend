@@ -1,5 +1,4 @@
 # Mapa de alinhamento - Backend
-adadasdasd
 
 ### Rotas de Cliente:
 
@@ -47,6 +46,7 @@ null
 ### Rotas de Serviços
 
 
+
 ## POST - api/services/
 
 Payload:
@@ -76,32 +76,13 @@ JSON
 ```
 JSON
 
-[
-    {
-        name: String,
-        duration: String,
-        value: Number,
-        isActive: Boolean
-    },
-    {
-        name: String,
-        duration: String,
-        value: Number,
-        isActive: Boolean
-    },
-    {
-        name: String,
-        duration: String,
-        value: Number,
-        isActive: Boolean
-    },
-    ..
-]
+{
+    name: String,
+    duration: String,
+    value: Number,
+    isActive: Boolean
+}
 ```
-
-<br>
-<br>
-<br>
 
 ## GET - api/services/
 
@@ -145,4 +126,102 @@ JSON
 
 ## PATCH - api/services/:id
 
+Response:
+```
+JSON
+
+{ 
+  error: Boolean, 
+  message: String, 
+  data: Object 
+}
+```
+
+**Service:** Altera um serviço já criado.
+```
+JSON
+
+{ 
+  error: Boolean, 
+  message: String, 
+  data: Object 
+}
+```
+
 ## DELETE - api/services/:id
+
+
+Response:
+```
+JSON
+
+{ 
+  error: Boolean, 
+  message: String, 
+  data: Object 
+}
+```
+
+**Service:** Deleta um serviço já criado.
+```
+JSON
+
+{ 
+  error: Boolean, 
+  message: String, 
+  data: Object 
+}
+```
+
+<br>
+<br>
+<br>
+
+### Rotas de Agenda:
+
+## GET - api/schedule?date="16/09/2026"
+
+> **Discutir**: Considernado que temos diversos serviços, irá acontecer que quando o cliente agendar mais de um serviço (Ex. Banho e tosa) a duração irá passar de 1h, e como o frontend mostra os horarios disponiveis para agendamento de hora em hora, precisamos elaborar uma logica que identifique que o serviço contratato irá ultrapassar a hora escolhida pelo cliente deixando a hora seguinte também indisponivel.
+
+
+## POST - api/schedule/
+Payload:
+```
+JSON
+
+{
+  clientName: String,
+  address: String,
+  phoneNumber: Number,
+  pet: {
+    Name: String,
+    Age: String,
+    personality: String,
+    breed: String
+  },
+  schedule: {
+    service: id,
+    date: timestamp,
+  }
+} 
+
+```
+Response:
+```
+JSON
+
+{ 
+    error: Boolean, 
+    message: String, 
+    data: Object 
+}
+```
+
+**Service:** Cria um novo agendamento
+```
+JSON
+
+{
+    id: String
+}
+```
